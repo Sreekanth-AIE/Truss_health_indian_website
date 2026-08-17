@@ -461,7 +461,7 @@
     footer {
       scroll-snap-align: start;
       scroll-snap-stop: always;
-      scroll-margin-top: 80px;
+      scroll-margin-top: 40px;
       padding: clamp(60px, 7vh, 85px) 0;
       transition: opacity 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
@@ -498,12 +498,13 @@
       background: var(--paper-2);
       border-top: 1px solid var(--line-strong);
       border-bottom: 1px solid var(--line-strong);
-      padding: 36px 0 !important;
+      padding: 70px 0 !important;
+
     }
 
     .iso-card-grid {
       display: grid;
-      grid-template-columns: 130px 1fr;
+      grid-template-columns: 180px 1fr;
       gap: 32px;
       align-items: center;
     }
@@ -512,7 +513,7 @@
       background: #fff;
       border: 1px solid var(--line-strong);
       border-radius: 18px;
-      padding: 14px;
+      padding: 1px 14px 1px 14px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1435,38 +1436,30 @@
               <path id="actual" d="M40,112 C120,138 190,168 250,192 C285,206 305,214 322,206 C342,196 356,168 372,150"
                 fill="none" stroke="url(#thermal)" stroke-width="3.4" stroke-linecap="round" />
 
-              <!-- animated indicator blip at current data point -->
+              <!-- alert marker at divergence -->
               <g id="alert" opacity="0">
-                <circle cx="372" cy="150" r="14" fill="#FF5A3C" opacity="0.25">
-                  <animate attributeName="r" values="8;20;8" dur="2s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.4;0.05;0.4" dur="2s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="372" cy="150" r="5" fill="#FF5A3C" />
-                <path d="M372,142 L372,104 L430,104" fill="none" stroke="#FF5A3C" stroke-width="1.5"
-                  stroke-dasharray="3 3" />
-                <g transform="translate(434, 88)">
-                  <rect x="0" y="0" width="112" height="32" rx="6" fill="#FF5A3C" opacity="0.9" />
-                  <text x="56" y="20" font-family="'IBM Plex Mono', monospace" font-size="10.5" font-weight="600"
-                    fill="#ffffff" text-anchor="middle">EARLY SIGNAL</text>
-                </g>
+                <circle cx="322" cy="206" r="16" fill="none" stroke="#FF5A3C" stroke-width="1.5" opacity="0.5" />
+                <circle cx="322" cy="206" r="5.5" fill="#FF5A3C" />
+                <circle id="pulse" cx="322" cy="206" r="6" fill="none" stroke="#FF5A3C" stroke-width="2" />
               </g>
 
-              <!-- trajectory labels -->
-              <text x="44" y="30" font-family="'IBM Plex Mono', monospace" font-size="10" fill="#5b7a82">Wound
-                Perfusion Index (mW/cm²)</text>
-              <text x="490" y="284" font-family="'IBM Plex Mono', monospace" font-size="10" fill="#5b7a82">Days →</text>
+              <!-- axis labels -->
+              <text x="40" y="284" fill="#5b7a82" font-family="IBM Plex Mono" font-size="10">DAY 0</text>
+              <text x="500" y="284" fill="#5b7a82" font-family="IBM Plex Mono" font-size="10">DAY 21</text>
+              <text x="46" y="34" fill="#5b7a82" font-family="IBM Plex Mono" font-size="10">WOUND AREA ↓ =
+                healing</text>
             </svg>
 
             <div class="dev-readout">
-              <div class="ro"><span class="k">Thermography</span><span class="v">+1.8°C <small>delta</small></span>
+              <div class="ro"><span class="k">Trajectory</span><span class="v">On track <small>→ d11</small></span>
               </div>
-              <div class="ro"><span class="k">Forecast</span><span class="v">Stalled <small>92%
-                    conf.</small></span></div>
-              <div class="ro alert"><span class="k">Action</span><span class="v">Flag care team</span></div>
+              <div class="ro alert"><span class="k">Signal · Day 12</span><span class="v">Perfusion drop</span></div>
+              <div class="ro"><span class="k">Action</span><span class="v">Flag care team</span></div>
             </div>
           </div>
         </div>
       </div>
+
     </header>
 
 
